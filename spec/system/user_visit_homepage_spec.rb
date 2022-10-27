@@ -16,4 +16,16 @@ expect(page).to have_content 'Aeroporto Rio'
 expect(page).to have_content 'Galpão SP'
 
     end
+
+    it 'e não existe galpões' do
+
+        son_data = File.read(Rails.root.join('spec/support/json/warehouses.json'))
+    fake_response = double("faraday_response", status: 200, body: "[]")
+
+    allow(Faraday).to receive(:get).with('http://localhost:4000/api/v1/warehouses').and_return(fake_response)
+    #Act
+    visit root_path
+    #Assert
+    expect(page).to have_content 'Nenhum galpão encontrado'
+    end
 end
