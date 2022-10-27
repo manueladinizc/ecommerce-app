@@ -1,0 +1,13 @@
+<h1>E-Commerce App</h1>
+
+<% @warehouses.each do |w| %>
+    <p>
+    <%= w["name"] %>
+    </p>
+   <p>
+    <%= w["code"] %>
+    </p>
+<% end %>
+
+<%# <p>Dados crus da API:</P>
+<%= @data %>
