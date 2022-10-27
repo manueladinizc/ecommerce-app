@@ -6,10 +6,13 @@
 
 <% @warehouses.each do |w| %>
     <p>
-    <%= link_to w["name"], warehouse_path(w["id"]) %>
+    <%= link_to w.name, warehouse_path(w.id) %>
     </p>
    <p>
-    <%= w["code"] %>
+    <%= w.code %>
+    </p>
+   <p>
+    <%= w.city %>
     </p>
 <% end %>
 
